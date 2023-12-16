@@ -1,0 +1,284 @@
+body {
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    height: 57.6rem;
+    width: 330px;
+    border-radius: 0 25px 25px 0;
+    border-radius: 0px 20px 20px 0px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    padding-top: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+}
+
+
+
+
+.first__bar {
+    display: flex;
+    padding: 10px 30px;
+    align-items: center;
+    gap: 55px;
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    margin-top: 10px;
+    margin-left: 120px;
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    height: 50px;
+    width: fit-content;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid yellow;
+}
+
+#profile {
+    height: 30px;
+}
+
+.clock {
+    width: 90px;
+    height: 20px;
+    color: rgb(44, 44, 40);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    width: 90px;
+    height: 20px;
+    color: rgb(54, 54, 49);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    display: flex;
+    width: 181px;
+    height: 41px;
+    margin: 0 40px;
+    margin-top: -1.5rem;
+}
+
+li {
+    list-style: none;
+    padding: 0 35px;
+}
+
+.links__top li a {
+    display: block;
+    text-decoration: none;
+    padding: 13px 10px;
+    margin-top: 25px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.links__top li i {
+    padding-right: 10px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__bottom li a {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    display: row;
+}
+
+
+.links__bottom {
+    margin-top: 150px;
+}
+
+.links__bottom li a {
+    padding: 15px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__top li .fourth {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    justify-content: space-evenly;
+    border-bottom: 0.5px solid #D9D9D9;
+    margin: 10px 20px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+#Password {
+    border-bottom: 1px solid #006400;
+    transition: 1s;
+}
+
+.password__container {
+    margin: 60px 100px;
+}
+
+.others {
+    display: flex;
+    padding: 0 0 0 20px;
+    margin-top: 20px;
+}
+
+.others h4 {
+    display: flex;
+    align-items: center;
+}
+
+#first {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+    margin: 0 30px;
+}
+
+#second {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+    background: #FFC107;
+}
+
+.btns {
+    margin-left: 250px;
+}
+
+.change__password {
+    display: flex;
+    width: 500px;
+    height: 42px;
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.change__password input {
+    padding: 7px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 0.50);
+}
+
+.others h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    gap: 10px;
+}
+
+.change__password h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    gap: 10px;
+}
+
+.change__pin {
+    display: flex;
+    width: 500px;
+    height: 42px;
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+}
+
+.change__pin input {
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 0.50);
+}
+
+.change__pin h4 {
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icons h4 {
+    display: flex;
+    align-items: center;
+}
+
+.inner__Container {
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    height: 20rem;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+}

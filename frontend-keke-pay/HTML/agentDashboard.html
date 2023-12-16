@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/agentDashboard.css">
+
+</head>
+
+<body>
+
+    <!-- ASIDE START -->
+    <div class="conc" id="blur">
+
+        <div class="aside__main">
+            <aside>
+                <img class="logo" src="../Images/logo.jpg" alt="">
+                <div class="container__aside">
+                    <div class="links__top">
+                        <li><a class="first" href="agentDashboard.html"><i
+                                    class="uil uil-create-dashboard"></i>Dashboard</a></li>
+                        <li><a class="second" href="agentDashboard__history.html"><i
+                                    class="uil uil-transaction"></i>History</a></li>
+                        <li><a class="third" href="agentDashboard__Settings.html"><i
+                                    class="uil uil-notes"></i>Settings</a></li>
+
+                    </div>
+
+                    <div class="links__bottom">
+                        <li><a href="">Support</a></li>
+                        <li><a href="Agent Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                    </div>
+                </div>
+        </div>
+        <!-- ASIDE END -->
+
+
+
+        <main>
+            <div class="first__bar">
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div>
+                <div class="date">
+                    <span id="day">1st-</span>
+                    <span id="month">Jan-</span>
+                    <span id="year">2023</span>
+                </div>
+
+                <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+                <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+                <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+
+
+            </div>
+
+            <div class="cards">
+                <div class="first__sec">
+                    <div class="first__Card">
+                        <div class="cont">
+                            <p>Total tickets verified today</p>
+                            <h2 id="ticketsCount">0</h2>
+                        </div>
+                    </div>
+                    <div class="second__Card">
+                        <div class="cont">
+                            <h2>Scan tickets</h2>
+                            <img src="../Images__Dashboard/scanning qr code.png">
+                            <button>Scan Code</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secondsec">
+                    <div class="fourth__Card">
+                        <img src="../Images__Dashboard/Support operator helps to solve the problem.png" alt="">
+                        <h2>Need help?</h2>
+                        <p>Our customer care team is avaliable 24/7.
+                            For any queries visit our FAQ section or send us a message
+                        </p>
+                        <button id="view__Faq">View FAQ</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="reciept__Id">
+                <input type="text" placeholder="Enter your reciept ID to continue">
+                <button>Verify</button>
+            </div>
+
+            <div class="transaction__area">
+                <div class="top__transaction__area">
+                    <li>Your transaction history</li>
+                    <li><a href="">View all</a></li>
+                </div>
+                <hr>
+                <p>All your verified tickets will appear here</p>
+            </div>
+    </div>
+    </div>
+    </main>
+
+    <script>
+
+        //AGENT API CONSUMPTION//
+
+
+        //AGENT API CONSUMPTION//
+
+
+        // Function to update date and time
+        function updateDateTime() {
+            const dateElement = document.getElementById('day');
+            const monthElement = document.getElementById('month');
+            const yearElement = document.getElementById('year');
+            const hoursElement = document.getElementById('hrs');
+            const minutesElement = document.getElementById('min');
+            const secondsElement = document.getElementById('sec');
+
+            const now = new Date();
+
+            // Format day with ordinal suffix (1st, 2nd, 3rd, etc.)
+            const day = now.getDate();
+            const ordinalSuffix = (day) => {
+                if (day >= 11 && day <= 13) {
+                    return `${day}th`;
+                }
+                switch (day % 10) {
+                    case 1: return `${day}st`;
+                    case 2: return `${day}nd`;
+                    case 3: return `${day}rd`;
+                    default: return `${day}th`;
+                }
+            };
+
+            dateElement.textContent = ordinalSuffix(day);
+            monthElement.textContent = now.toLocaleString('default', { month: 'short' }) + '-';
+            yearElement.textContent = now.getFullYear();
+
+            // Format time with leading zeros
+            const formatWithLeadingZero = (num) => (num < 10 ? `0${num}` : num);
+
+            hoursElement.textContent = formatWithLeadingZero(now.getHours());
+            minutesElement.textContent = formatWithLeadingZero(now.getMinutes());
+            secondsElement.textContent = formatWithLeadingZero(now.getSeconds());
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial call to set the date and time on page load
+        updateDateTime();
+
+        let count = localStorage.getItem('count');
+        const ct = document.getElementById('ticketsCount');
+        ct.textContent = count;
+    </script>
+</body>
+
+</html>

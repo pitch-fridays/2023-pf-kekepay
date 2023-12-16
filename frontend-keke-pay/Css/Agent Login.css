@@ -1,0 +1,119 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    grid-template-rows: 90px auto 90px 90px; 
+    background-image: url(image\ 4.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.container{
+    box-sizing: border-box;
+    width: 450px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    /* border: 1px solid black; */
+    height: 450px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    border-radius: 13px;
+    box-shadow: rgb(44, 44, 44) 3px 3px 6px 1px;
+    background-color: #fff;   
+}
+
+.logo{
+
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;    
+   margin-left: 157px;
+}
+
+/* Inputs start */
+
+h3{
+    display: flex;
+    justify-content: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    font-weight: 200;
+    font-size: 25px;
+}
+
+label {
+    margin-left: 50px;
+    display: inline-block;
+    text-decoration: left;
+    width: 60px;
+    position: absolute;
+    font-size: 13px;
+    transform: translate(-40%);
+    pointer-events: none;
+    background: transparent;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    margin-top: -8px;
+  }
+
+#ID{
+    padding: 12px;
+   border-radius: 10px;
+   width: 330px;
+  border: 2px solid rgb(160, 159, 159);
+}
+
+#pass{
+  padding: 12px;
+  border-radius: 10px;
+  width: 330px;
+  border: 2px solid gray;
+}
+
+.password{
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.ID{
+    margin-left: 40px;
+   margin-top: 30px;
+}
+
+.Check{
+    margin-left: 40px;
+    margin-top: 40px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* inputs end */
+
+a{
+    margin-left: 80px;
+    text-decoration: none;
+    color: green;
+  }
+
+  /* button start */
+#button{
+  padding: 10px;
+  margin-left: 90px;
+  margin-top: 70px;
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+  background-color: #FFC107;
+  cursor: pointer;
+}
+#button:hover{
+  box-shadow: rgb(170, 169, 169) 3px 3px 6px 1px;
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* button end */
+
+#Forgot{
+  margin-left: 60px;
+}
+
+

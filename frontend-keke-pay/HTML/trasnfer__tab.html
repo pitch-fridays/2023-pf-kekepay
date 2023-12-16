@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/transferfunds__tab.css">
+    <title>Transfer funds</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+<body>
+    <div class="body">
+        <div class="popup-container" id="popupContainer">
+            <div class="card active" id="card1">
+
+                <!-- Your card content goes here -->
+                <div class="card-content" style="height: 300px;">
+                    <div class="transF">
+                        <div class="transF__top">
+                            <span id="TF"> Transfer Funds</span>
+                            <a href="Dashboard.html"><img src="../Images/close.svg" alt=""></a>
+
+                        </div>
+                        <form action="/user/transfer-fund/" method="POST">
+                            <div class="inside">
+                                <h4>Amount</h4>
+                                <input type="number" placeholder="1,000 - 50,000" class="ammount">
+                            </div>
+                            <div class="Hug">
+                                <h4>Recipient Account</h4>
+                                <input type="number" placeholder="Enter your 10 digit account number" class="accNumber">
+                                <div class="select-menu">
+                                    <div class="select-btn">
+                                        <span class="sBtn-text">Select Bank</span>
+                                        <i class="uil uil-angle-down"></i>
+                                    </div>
+                                    <ul class="options">
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img"
+                                                src="../Images__Dashboard/access.png" alt="">
+                                            <span class="option-text">Access Bank</span>
+                                        </li>
+
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img"
+                                                src="../Images__Dashboard/first.png" alt="">
+                                            <span class="option-text">First Bank</span>
+                                        </li>
+
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img"
+                                                src="../Images__Dashboard/union.png" alt="">
+                                            <span class="option-text">Union Bank</span>
+                                        </li>
+
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img"
+                                                src="../Images__Dashboard/Stanbic.png" alt="">
+                                            <span class="option-text">Stanbic</span>
+                                        </li>
+
+                                        <li class="option">
+                                            <img style="border-radius: 50%; height: 40px;" id="select-img"
+                                                src="../Images__Dashboard/access.png" alt="">
+                                            <span class="option-text">Access</span>
+                                        </li>
+                                    </ul>
+                                    <a href="Dashboard.html"><button id="btns">Next</button></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+        //API COSUMPTION PART//
+        const btn = document.getElementById('btns');
+        console.log(btn);
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            // const baseUrl = 'http://localhost:5500';
+            const baseUrl = 'https://keke-pay.onrender.com'
+            const userId = localStorage.getItem('userId');
+
+            const transferFund = async () => {
+                const amountInput = document.querySelector('.ammount');
+                const accountNumberInput = document.querySelector('.accNumber');
+
+                const amount = amountInput.value;
+                const accountNumber = accountNumberInput.value;
+
+                if (!amount || !accountNumber) {
+                    return alert('Missing required fields ')
+                }
+                console.log(amount);
+                console.log(accountNumber);
+
+                try {
+
+                    const response = await fetch(`${baseUrl}/user/transfer-fund/${userId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            amount,
+                            accountNumber
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert(`${data.message}`);
+                        localStorage.setItem('balance', data.balance);
+                        localStorage.setItem('count', data.count)
+                        window.location.href = 'Dashboard.html';
+                    } else if (!response.ok) {
+                        alert(`${data.message}`);
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                    alert(`${data.message}`);
+
+                }
+
+            }
+
+            transferFund();
+
+
+
+        })
+        // //END OF API CONSUMPTION PART//
+
+        const optionMenu = document.querySelector(".select-menu"),
+            selectBtn = optionMenu.querySelector(".select-btn"),
+            options = optionMenu.querySelectorAll(".option"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+        selectBtn.addEventListener("click", () =>
+            optionMenu.classList.toggle("active"),
+        );
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                let selectedOption = option.querySelector(".option-text").innerText;
+                sBtn_text.innerText = selectedOption;
+
+                optionMenu.classList.remove("active")
+                console.log(selectedOption);
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

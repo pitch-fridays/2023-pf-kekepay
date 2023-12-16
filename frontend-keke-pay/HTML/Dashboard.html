@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/Dashboard.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="../Javascript/main.js"></script>
+    <script src="../Javascript/Dashboard.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+
+<body>
+
+    <!-- ASIDE START -->
+    <div class="conc" id="blur">
+        <aside>
+            <img class="logo" src="../Images/logo.jpg" alt="">
+            <div class="container__aside">
+                <div class="links__top">
+                    <li><a class="first" href="../HTML/Dashboard.html"><i
+                                class="uil uil-create-dashboard"></i>Dashboard</a></li>
+                    <li><a class="second" href="../HTML/Payments.html"><i class="uil uil-transaction"></i>Payment</a>
+                    </li>
+                    <li><a class="third" href="../HTML/Transactions.html"><i class="uil uil-notes"></i>Transactions</a>
+                    </li>
+                    <li><a class="fourth" href="../HTML/Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                </div>
+
+                <div class="links__bottom">
+                    <li><a href="Refer.html">Refer a friend</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                </div>
+            </div>
+            <!-- ASIDE END -->
+
+
+            <main>
+                <div class="first__bar">
+                    <div class="clock">
+                        <span id="hrs">00</span>
+                        <span>:</span>
+                        <span id="min">00</span>
+                        <span>:</span>
+                        <span id="sec">00</span>
+                    </div>
+                    <div class="date">
+                        <span id="day">1st-</span>
+                        <span id="month">Jan-</span>
+                        <span id="year">2023</span>
+                    </div>
+
+                    <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+                    <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+                    <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+
+
+                </div>
+
+                <div class="second__bar">
+                    <div class="text">
+                        <h6>Hey there,</h6>
+                        <h4 class="display-name">Welcome</h4>
+                    </div>
+                    <div class="auto__pay">
+                        <h4>Auto pay</h4>
+                        <label class="switch">
+                            <input type="checkbox" id="toggleSwitch">
+                            <span class="slider"></span>
+                    </div>
+                    </label>
+
+                </div>
+
+                <div class="cards">
+                    <div class="first__sec">
+                        <div class="first__Card">
+                            <p>Current Balance</p>
+                            <div class="naira">
+                                <img src="../Images__Dashboard/naira.png" height="20px" width="40px">
+                                <h3 class="diplay-balance">********</h3>
+                            </div>
+                        </div>
+                        <div class="second__Card">
+                            <div class="cont">
+                                <p>Total Transactions </p>
+                                <h2 class="count">0</h2>
+                            </div>
+                        </div>
+
+                        <div class="third__Card">
+                            <div class="Add__funds">
+                                <a href="addfunds__tab.html"><img src="../Images__Dashboard/Vector.png"
+                                        height="45px"></a>
+                                <p>Add Funds</p>
+                            </div>
+
+                            <div class="Transfer__funds">
+                                <a href="trasnfer__tab.html"><img src="../Images__Dashboard/Vector (1).png"
+                                        height="45px"></a>
+                                <p>Transfer Funds</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secondsec">
+                        <div class="fourth__Card">
+                            <img src="../Images__Dashboard/Support operator helps to solve the problem.png" alt="">
+                            <h2>Need help?</h2>
+                            <p>Our customer care teeam is avaliable 24/7.
+                                For any queries visit our FAQ section or send us a message
+                            </p>
+                            <button id="view__Faq">View FAQ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transaction__area">
+                    <div class="top__transaction__area">
+                        <li>Your transaction history</li>
+                        <li><a href="">View all</a></li>
+                    </div>
+                    <hr>
+                    <p>All your recent transactions will appear hear</p>
+                </div>
+
+
+            </main>
+    </div>
+
+
+    <script>
+        //FUNCTION FOR DISPLAYING DATE//
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            document.getElementById('hrs').textContent = hours;
+            document.getElementById('min').textContent = minutes;
+            document.getElementById('sec').textContent = seconds;
+
+            const day = now.getDate();
+            const month = now.toLocaleString('default', { month: 'short' });
+            const year = now.getFullYear();
+
+            document.getElementById('day').textContent = day + 'th-';
+            document.getElementById('month').textContent = month + '-';
+            document.getElementById('year').textContent = year;
+        }
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        // Call the function once to set the initial values
+        updateClock();
+        //END IF THE FUNCTION FOR DISPLAYING DATE//
+
+        //DIS PLAY NAME FUNCTION//
+        let fullName = localStorage.getItem('fullName');
+        let nameParts = fullName.split(" ");
+        let firstName = nameParts[0];
+
+        const balance = localStorage.getItem('balance');
+        const count = localStorage.getItem('count')
+
+        const name = document.querySelector('.display-name');
+        const bal = document.querySelector('.diplay-balance');
+        const counts = document.querySelector('.count');
+        // console.log(name);
+        // console.log(balance);
+        // console.log(counts);
+        name.textContent = `Welcome : ${firstName}`;
+        bal.textContent = balance;
+        counts.textContent = count;
+        //END OF DISPLAY NAME FUCTION//
+
+
+        const optionMenu = document.querySelector(".select-menu"),
+            selectBtn = optionMenu.querySelector(".select-btn"),
+            options = optionMenu.querySelectorAll(".option"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+        selectBtn.addEventListener("click", () =>
+            optionMenu.classList.toggle("active"));
+
+
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                let selectedOption = option.querySelector(".option-text").innerText;
+                sBtn_text.innerText = selectedOption;
+
+                optionMenu.classList.remove("active")
+                console.log(selectedOption);
+            });
+        });
+    </script>
+</body>
+
+</html>

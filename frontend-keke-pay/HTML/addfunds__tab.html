@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add funds</title>
+    <link rel="stylesheet" href="../Css/Add funds.css">
+</head>
+
+<body>
+    <div class="Container" id="popup">
+        <div class="top">
+            <h2>Add Card</h2>
+            <a href="Dashboard.html"><img src="../Images/close.svg"></a>
+        </div>
+        <form action="/add-fund" method="POST">
+            <div class="inputs">
+                <div class="good">
+                    <div class="amount__add">
+                        <h4>Amount</h4>
+                        <input type="number" placeholder="Please enter amount" class="amount">
+                    </div>
+                    <div class="cardno">
+                        <h4>Card Number</h4>
+                        <input id="card" type="number" placeholder="Please enter your card number" class="card-no">
+                    </div>
+                </div>
+
+                <div class="Full">
+                    <div class="word">
+                        <h4>Expiry date</h4>
+                        <div class="expiry__date">
+                            <input type="number" max="2" placeholder="MM" class="month">
+                            <h4>/</h4>
+                            <input id="YY" type="number" placeholder="YY" class="year">
+                        </div>
+                    </div>
+                    <div class="cvv">
+                        <h4>CVV</h4>
+                        <input type="number" placeholder="Enter your CVV" class="bank-cvv">
+                    </div>
+                </div>
+                <div class="pin">
+                    <h4>Enter Pin</h4>
+                    <input id="pin" type="password" placeholder="Enter Your pin" class="bank-pin">
+                </div>
+                <div class="btnn">
+                    <a href="Dashboard.html"><button id="btnn">Next</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    </div>
+
+
+    <script>
+        const btn = document.getElementById('btnn');
+        console.log(btn);
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            // const baseUrl = 'http://localhost:5500';
+            const baseUrl = 'https://keke-pay.onrender.com'
+            const userId = localStorage.getItem('userId');
+            console.log(userId);
+            const addFund = async () => {
+
+                const amount = document.querySelector('.amount').value;
+                const cardNumber = document.querySelector('.card-no').value;
+                const mm = document.querySelector('.month').value;
+                const yy = document.querySelector('.year').value;
+                const cvv = document.querySelector('.bank-cvv').value;
+                const pin = document.querySelector('.bank-pin').value;
+
+                if (!amount || !cardNumber || !mm || !yy || !cvv || !pin) {
+                    return alert('Missing required fields ')
+                }
+
+                try {
+
+                    const response = await fetch(`${baseUrl}/user/add-fund/${userId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            amount,
+                            cardNumber,
+                            mm,
+                            yy,
+                            cvv,
+                            pin
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert(`${data.message}`);
+                        localStorage.setItem('balance', data.balance);
+                        localStorage.setItem('count', data.count)
+                        window.location.href = 'Dashboard.html';
+                    } else {
+                        // alert(`${data.message}`);
+                        alert('somthing went wrong, input correct card details')
+                    }
+
+
+                } catch (error) {
+                    console.error('Error changing password:', error);
+                    alert(`${data.message}`);
+                }
+
+            }
+
+            addFund();
+
+        });
+
+    </script>
+</body>
+
+</html>

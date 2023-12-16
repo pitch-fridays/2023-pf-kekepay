@@ -1,0 +1,254 @@
+body {
+    display: flex;
+    margin-top: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    height: 57.6rem;
+    width: 330px;
+    border-radius: 0 25px 25px 0;
+    border-radius: 0px 20px 20px 0px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    padding-top: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+input {
+    display: none;
+}
+
+
+.first__bar {
+    display: flex;
+    padding: 10px 30px;
+    align-items: center;
+    gap: 55px;
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    margin-top: 10px;
+    margin-left: 120px;
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    height: 50px;
+    width: fit-content;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid yellow;
+}
+
+#profile {
+    height: 30px;
+}
+
+.clock {
+    width: 90px;
+    height: 20px;
+    color: rgb(44, 44, 40);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    width: 90px;
+    height: 20px;
+    color: rgb(54, 54, 49);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    display: flex;
+    width: 181px;
+    height: 41px;
+    margin: 0 40px;
+    margin-top: -1.5rem;
+}
+
+li {
+    list-style: none;
+    padding: 0 35px;
+}
+
+.links__top li a {
+    display: block;
+    text-decoration: none;
+    padding: 13px 10px;
+    margin-top: 25px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.links__top li i {
+    padding-right: 10px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__bottom li a {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    display: row;
+}
+
+
+.links__bottom {
+    margin-top: 150px;
+}
+
+.links__bottom li a {
+    padding: 15px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__top li .second {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+
+
+.third__Card img {
+    background: #006400;
+    padding: 14px;
+    display: flex;
+    border-radius: 5px;
+    margin: 1px 15px;
+
+}
+
+.third__Card p {
+    width: 20px;
+    margin-left: 15px;
+}
+
+.third__Card {
+    display: flex;
+    width: 350px;
+    gap: 40px;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    height: 120px;
+    margin: 20px 115px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    justify-content: space-around;
+}
+
+
+
+
+.fourth__Card {
+    border: 1px solid #D9D9D9;
+    border-radius: 13px;
+    margin: 20px 115px;
+    height: 340px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 350px;
+}
+
+.fourth__Card p {
+    width: 360px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: -20px;
+    margin-top: 25px;
+}
+
+
+
+h2 {
+    text-align: center;
+}
+
+#view__Faq {
+    margin: 5px 90px;
+    cursor: pointer;
+    padding: 10px 50px;
+    border-radius: 4px;
+    border: 2px solid #FFC107;
+}
+
+#view__Faq:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.cards {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+
+
+main {
+    position: relative;
+    top: -40rem;
+    left: 20rem;
+    width: auto;
+
+}
+
+.Add__Card {
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    height: 505px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: -520px;
+    left: 500px;
+}
+
+.Add__Card p {
+    font-size: 20px;
+    width: 150px;
+}
+
+.Add__Card a {
+    padding: 10px 40px;
+    border-radius: 4px;
+    border: 2px solid #FFC107;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    background: #D9D9D9;
+}

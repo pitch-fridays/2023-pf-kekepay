@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    gap: 30rem;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.Main__container {
+    border: 1px solid red;
+    height: 622px;
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    margin-top: 40px;
+    padding: 40px 30px;
+}
+
+.container__aside {
+    display: inline-flex;
+    height: 1024px;
+    padding: 40px 0px;
+    flex-direction: column;
+    gap: 23rem;
+    flex-shrink: 0;
+    border-radius: 0px 20px 20px 0px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    width: 330px;
+    position: fixed;
+}
+
+.logo {
+    display: flex;
+    width: 181px;
+    height: 41px;
+    margin: 0 40px;
+    margin-top: -1.5rem;
+}
+
+li {
+    list-style: none;
+    padding: 0 35px;
+}
+
+.links__top {
+    margin-top: 20px;
+}
+
+.links__top li a {
+    display: block;
+    text-decoration: none;
+    padding: 13px 10px;
+    margin-top: 25px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.50);
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.links__top li i {
+    padding-right: 10px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__top li .second {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+
+.links__bottom li a {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+}
+
+
+
+
+.links__bottom li a {
+    padding: 15px;
+}
+
+
+.first__bar {
+    display: flex;
+    padding: 10px 100px;
+    align-items: center;
+    gap: 55px;
+    justify-content: space-between;
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #eea7a7;
+    margin: 32px 0 50px 100px;
+    /* margin: 32px 0 50px 120px; */
+
+    border-radius: 30px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    height: 50px;
+    width: fit-content;
+}
+
+#profile {
+    height: 30px;
+}
+
+.clock {
+    width: 90px;
+    height: 20px;
+    color: rgb(44, 44, 40);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    width: 90px;
+    height: 20px;
+    color: rgb(54, 54, 49);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transaction__area {
+    display: flex;
+    width: 972px;
+    padding: 30px 53px;
+    flex-direction: column;
+    gap: 45px;
+    border: 1px solid #D9D9D9;
+    border-radius: 37px;
+}
+
+.top__transaction__area {
+    display: flex;
+}
+
+
+
+.top__transaction__area li a {
+    padding-left: 340px;
+    text-decoration: none;
+    color: #006400;
+}
+
+.list {
+    display: flex;
+    align-items: flex-start;
+    gap: 89px;
+}
+
+.list strong {
+    color: #000;
+    /* H3 */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.first__row img {
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+}
+
+
+.history li {
+    color: #000;
+    /* H4 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+.history {
+    display: flex;
+}
+
+.dates {
+    position: relative;
+    left: -50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kekeplate {
+    position: relative;
+    left: -30px;
+}
+
+hr {
+    position: relative;
+    top: -20px;
+}
+
+.amount {
+    position: relative;
+    left: 40px;
+}
+
+.reciept__ID {
+    position: relative;
+    left: 100px;
+}
+
+.status {
+    position: relative;
+    left: 150px;
+}
+
+#head {
+    color: rgba(0, 0, 0, 0.50);
+    /* H4 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.ID {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.ID input {
+    display: flex;
+    width: 500px;
+    padding: 20px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5;
+}
+
+.ID button {
+    padding: 15px 40px;
+    border-radius: 4px;
+    background: #FFC107;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+/* STYLE FOR THE DYNAMIC DATA RENDERING */
+/* Existing styles remain unchanged */
+
+.history {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .first__row {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .first__row li {
+        color: #000;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .first__row img {
+        margin-right: 8px;
+        position: relative;
+        top: 2px;
+    }
+
+    hr {
+        position: relative;
+        top: -20px;
+    }
+}
+
+#head {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #33343437;
+}
+
+
+.Container{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.50);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 50px;
+    background: #fff;
+}
+
+.bottom__card > .text h4{
+    color: rgba(0, 0, 0, 0.50);
+
+/* H4 */
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.bottom__card a img{
+   position: relative;
+   right: -7px;
+}
+.or{
+    text-align: center;
+    margin: 15px 25px;
+}
+
+.or h4{
+    color: #000;
+
+/* H3 */
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: relative;
+background: #fff;
+top: 12px;
+width: 30px;
+left: 160px;
+}
+
+.heading{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10rem;
+}
+
+.heading img{
+    cursor: pointer;
+    height: 15px;
+}
+
+.Container >.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container > .top img{
+    position: relative;
+    left: 150px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.amount__add >input{
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5;
+    padding: 14px;
+    width: 467px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.Enter img{
+    position: absolute;
+    top: 107px;
+    left: 60px;
+    opacity: 30%;
+    height: 20px;
+}
+
+.btn button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    padding: 5px 20px;
+    margin: 20px 100px;
+    border-radius: 4px;
+    border: 1px solid #FFC107;
+    cursor: pointer;
+}
+
+#first{
+    padding: 10px;
+    width: 340px;
+    border-radius: 4px;
+    background: #FFC107;
+    border: 1px solid #E5E5E5;
+    cursor: pointer;
+}
+
+
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+
+.card__add > .top{
+    display: flex;
+     gap: 8rem;
+}
+
+.inputs h4{
+    color: #000;
+
+    /* H4 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+#card{
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5;
+    padding: 14px;
+    width: 467px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.expiry__date input{
+    width: 100px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5; 
+    padding: 1px 0;
+}
+
+
+
+.expiry__date{
+    display: flex;
+    gap: 10px;
+    
+}
+
+.cvv input{
+    width: 200px;
+    padding: 20px 10px;
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5;
+}
+
+.Full{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#pin{
+    padding: 20px;
+    width: 450px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 1px solid #006400;
+    background: #E5E5E5;
+    height: 20px;
+    margin: 3px;
+}
+
+.pin{
+    margin: 30px 0;
+}
+
+.btnn button{
+    padding: 15px;
+    border-radius: 10px;
+    background: #FFC107;
+    width: 483px;
+    cursor: pointer;
+    border: none;
+}
+
+.card__add{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: rgb(44, 44, 44) 3px 3px 6px 1px;
+    width: fit-content;
+    padding: 30px;
+}

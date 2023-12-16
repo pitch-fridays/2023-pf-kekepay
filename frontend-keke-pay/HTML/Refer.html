@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../Css/refer.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="container__top">
+      <h3>Refer A friend</h3>
+      <a href="Dashboard.html"><img height="15px" src="../Images/close.svg"></a>
+    </div>
+    <hr>
+    <div class="main-content">
+      <img id="refer" height="120px" src="../Images__Dashboard/refer.png">
+
+      <div class="copy-container">
+        <div class="input" id="textToCopy">
+        </div>
+        <img onclick="copyText()" height="20px" src="../Images/copy.svg" alt="Copy text">
+
+      </div>
+      <h4 id="copy">Click here to copy</h4>
+      <h4 id="share">Share</h4>
+
+      <div class="icons">
+        <a href="https://twitter.com"><img height="20px" src="../Images__Dashboard/X.svg"></a>
+        <a href="https://web.whatsapp.com/"><img height="25px" src="../Images__Dashboard/WhatsApp.svg"></a>
+        <a href="https://www.facebook.com/"><img height="25px" width="25px" src="../Images__Dashboard/Facebook.svg"></a>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <h4>Any questions? Email: <a href="">support@kekepay.ng</a></h4>
+    </div>
+  </div>
+
+
+  <script>
+    const share = document.querySelector('.input');
+    const url = 'https://frontend-keke-pay.vercel.app/';
+    share.textContent = url;
+
+    function copyText() {
+
+      var textToCopy = document.getElementById("textToCopy");
+
+
+      var tempInput = document.createElement("input");
+      tempInput.value = textToCopy.innerText;
+      document.body.appendChild(tempInput);
+
+
+      tempInput.select();
+      tempInput.setSelectionRange(0, 99999);
+
+
+      document.execCommand("copy");
+
+
+      document.body.removeChild(tempInput);
+
+
+      alert("Copied: " + textToCopy.innerText);
+    }
+  </script>
+  </script>
+</body>
+
+</html>

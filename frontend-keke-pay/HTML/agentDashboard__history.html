@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Css/agentDashboard__history.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="container__aside">
+        <div class="links__top">
+          <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+          <li><a class="first" href="agentDashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a>
+          </li>
+          <li><a class="second" href="agentDashboard__history.html"><i class="uil uil-transaction"></i>History</a>
+          </li>
+          <li><a class="third" href="agentDashboard__Settings.html"><i class="uil uil-notes"></i>Settings</a></li>
+        </div>
+
+        <div class="links__bottom">
+          <li><a href="">Support</a></li>
+          <li><a href="Agent Login.html">Log out <i class="uil uil-signout"></i></a></li>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="first__bar">
+        <div class="clock">
+          <span id="hrs">00</span>
+          <span>:</span>
+          <span id="min">00</span>
+          <span>:</span>
+          <span id="sec">00</span>
+        </div>
+        <div class="date">
+          <span id="day">1st-</span>
+          <span id="month">Jan-</span>
+          <span id="year">2023</span>
+        </div>
+
+        <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+        <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+        <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+      </div>
+
+      <!-- onclick="searchTransactions()" -->
+
+      <form action="/fetch-record" method="POST">
+        <div class="ID">
+          <input type="text" id="search-receipt" placeholder="Search Reciept Number">
+          <button id="searchTransaction">Search</button>
+        </div>
+      </form>
+
+      <div class="transaction__area">
+        <div class="top__transaction__area">
+          <li id="head">Your transaction history</li>
+          <li>
+            <a href="">
+              <button class="view" id="viewAll"
+                style="cursor:  pointer;background-color: white; border: none;  font-size: large;">
+                View all
+              </button>
+            </a>
+          </li>
+        </div>
+        <hr>
+        <div class="list" style="margin-left: 40px;">
+          <strong>Date</strong>
+          <strong>Description</strong>
+          <strong>Amount</strong>
+          <strong>Reciept no.</strong>
+          <strong>Status</strong>
+        </div>
+        <div class="history" id="transactionHistory">
+          <!-- Transaction history will be dynamically inserted here -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+
+
+    //API CONSUMPTION PART//
+
+    const viewAll = document.getElementById('viewAll');
+    console.log(viewAll);
+
+    viewAll.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      async function fetchAndRenderTransactions() {
+        // const baseUrl = 'http://localhost:5500';
+        const baseUrl = 'https://keke-pay.onrender.com'
+
+
+        const response = await fetch(`${baseUrl}/all-payments`);
+        const transactions = await response.json();
+
+        if (response.ok) {
+          const transactionHistoryElement = document.getElementById('transactionHistory');
+          transactions.forEach(transaction => {
+            const formattedDate = new Date(transaction.date).toLocaleDateString();
+            const transactionRow = document.createElement('div');
+            transactionRow.classList.add('first__row');
+            transactionRow.innerHTML = `
+                          <li>${formattedDate}</li>
+                          <li>${transaction.description}</li>
+                          <li id="amount">N${transaction.amount}</li>
+                          <li>${transaction.receiptNumber}</li>
+                          <li id="Status"><img src="../Images/Ellipse 4.svg" alt="">${transaction.status}</li>
+                      `;
+            transactionHistoryElement.appendChild(transactionRow);
+          });
+        } else {
+          console.error(`Failed to fetch transactions. Error: ${transactions.message}`);
+        }
+      }
+      fetchAndRenderTransactions();
+    })
+
+
+
+
+
+    //END OF API CONSUMPTION PART//
+
+
+    //CONSUMING OF THE API PART USING THE SEARCH//
+
+    const search = document.getElementById('searchTransaction');
+    console.log(search);
+
+    search.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      try {
+
+        const reciptNo = document.getElementById('search-receipt').value;
+        console.log(reciptNo);
+
+        if (!reciptNo) {
+          alert('please input receipt number')
+        }
+
+
+        async function fetchReceiptRecord() {
+          // const baseUrl = 'http://localhost:5500';
+          const baseUrl = 'https://keke-pay.onrender.com'
+
+
+          try {
+            const response = await fetch(`${baseUrl}/fetch-record`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                receiptNumber: reciptNo,
+              }),
+            });
+
+            if (!response.ok) {
+              console.error(`Failed to fetch transactions. Status: ${response.status}`);
+              return;
+            }
+
+            // const transaction = await response.json();
+
+            const result = await response.json();
+            const transaction = result.payments;
+            localStorage.setItem('count', transaction.count)
+
+            console.log(transaction);
+
+            const transactionHistoryElement = document.getElementById('transactionHistory');
+            const formattedDate = new Date(transaction.date).toLocaleDateString();
+            const transactionRow = document.createElement('div');
+            transactionRow.classList.add('first__row');
+            transactionRow.innerHTML = `
+      <li>${formattedDate}</li>
+      <li>${transaction.description}</li>
+      <li id="amount">N${transaction.amount}</li>
+      <li>${transaction.receiptNumber}</li>
+      <li id="Status"><img src="../Images/Ellipse 4.svg" alt="">${transaction.status}</li>
+    `;
+            transactionHistoryElement.appendChild(transactionRow);
+          } catch (error) {
+            console.error(`Failed to fetch transactions. Error: ${error.message}`);
+          }
+        }
+
+        fetchReceiptRecord();
+
+
+
+
+
+        // fetchAndRenderTransactions();
+
+      } catch (error) {
+        console.error(`Failed to fetch transactions. Error: ${transactions.message}`);
+
+
+      }
+
+
+
+
+    })
+
+    //END CONSUMING OF THE API PART USING THE SEARCH//
+
+
+
+
+
+
+    //DISPLAY DATE FUNCTION//
+    function updateDateTime() {
+      const dateElement = document.getElementById('day');
+      const monthElement = document.getElementById('month');
+      const yearElement = document.getElementById('year');
+      const hoursElement = document.getElementById('hrs');
+      const minutesElement = document.getElementById('min');
+      const secondsElement = document.getElementById('sec');
+
+      const now = new Date();
+
+      // Format day with ordinal suffix (1st, 2nd, 3rd, etc.)
+      const day = now.getDate();
+      const ordinalSuffix = (day) => {
+        if (day >= 11 && day <= 13) {
+          return `${day}th`;
+        }
+        switch (day % 10) {
+          case 1: return `${day}st`;
+          case 2: return `${day}nd`;
+          case 3: return `${day}rd`;
+          default: return `${day}th`;
+        }
+      };
+
+      dateElement.textContent = ordinalSuffix(day);
+      monthElement.textContent = now.toLocaleString('default', { month: 'short' }) + '-';
+      yearElement.textContent = now.getFullYear();
+
+      // Format time with leading zeros
+      const formatWithLeadingZero = (num) => (num < 10 ? `0${num}` : num);
+
+      hoursElement.textContent = formatWithLeadingZero(now.getHours());
+      minutesElement.textContent = formatWithLeadingZero(now.getMinutes());
+      secondsElement.textContent = formatWithLeadingZero(now.getSeconds());
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+    //END OF DISPLAY DATE FUNCTION//
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Css/agentDashboard__history.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="container__aside">
+        <div class="links__top">
+          <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+          <li><a class="first" href="agentDashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a></li>
+          <li><a class="second" href="agentDashboard__history.html"><i class="uil uil-transaction"></i>History</a></li>
+          <li><a class="third" href="agentDashboard__Settings.html"><i class="uil uil-notes"></i>Settings</a></li>
+        </div>
+
+        <div class="links__bottom">
+          <li><a href="">Support</a></li>
+          <li><a href="">Log out <i class="uil uil-signout"></i></a></li>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="first__bar">
+        <div class="clock">
+          <span id="hrs">00</span>
+          <span>:</span>
+          <span id="min">00</span>
+          <span>:</span>
+          <span id="sec">00</span>
+        </div>
+        <div class="date">
+          <span id="day">1st-</span>
+          <span id="month">Jan-</span>
+          <span id="year">2023</span>
+        </div>
+
+        <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+        <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+        <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+      </div>
+
+      <div class="ID">
+        <input type="text" placeholder="Search plate no, date or ID">
+        <button>Search</button>
+      </div>
+      <div class="transaction__area">
+        <div class="top__transaction__area">
+          <li id="head">Your transaction history</li>
+          <li><a href="">View all</a></li>
+        </div>
+        <hr>
+        <div class="list">
+          <strong>Date</strong>
+          <strong>Keke plate no.</strong>
+          <strong>Amount</strong>
+          <strong>Reciept no.</strong>
+          <strong>Status</strong>
+        </div>
+        <div class="history">
+          <div class="dates">
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+            <li>10.12.2023</li>
+          </div>
+
+          <div class="kekeplate">
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+            <li>SHD-34-T8</li>
+          </div>
+
+          <div class="amount">
+            <li>N100</li>
+            <li>N100</li>
+            <li>N100</li>
+            <li>N100</li>
+            <li>N100</li>
+            <li>N100</li>
+            <li>N100</li>
+          </div>
+
+          <div class="reciept__ID">
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+            <li>11DE83451</li>
+          </div>
+
+          <div class="status">
+            <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+            <li><img src="../Images/failed.svg" alt=""> Failed</li>
+            <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+            <li><img src="../Images/Proecessing.svg" alt=""> Pending</li>
+            <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+            <li><img src="../Images/failed.svg" alt=""> Failed</li>
+            <li><img src="../Images/Ellipse 4.svg" alt=""> Completed</li>
+          </div>
+        </div>
+
+
+      </div>
+  </div>
+  </main>
+
+
+  <script>
+    // Function to update date and time
+    function updateDateTime() {
+      const dateElement = document.getElementById('day');
+      const monthElement = document.getElementById('month');
+      const yearElement = document.getElementById('year');
+      const hoursElement = document.getElementById('hrs');
+      const minutesElement = document.getElementById('min');
+      const secondsElement = document.getElementById('sec');
+
+      const now = new Date();
+
+      // Format day with ordinal suffix (1st, 2nd, 3rd, etc.)
+      const day = now.getDate();
+      const ordinalSuffix = (day) => {
+        if (day >= 11 && day <= 13) {
+          return `${day}th`;
+        }
+        switch (day % 10) {
+          case 1: return `${day}st`;
+          case 2: return `${day}nd`;
+          case 3: return `${day}rd`;
+          default: return `${day}th`;
+        }
+      };
+
+      dateElement.textContent = ordinalSuffix(day);
+      monthElement.textContent = now.toLocaleString('default', { month: 'short' }) + '-';
+      yearElement.textContent = now.getFullYear();
+
+      // Format time with leading zeros
+      const formatWithLeadingZero = (num) => (num < 10 ? `0${num}` : num);
+
+      hoursElement.textContent = formatWithLeadingZero(now.getHours());
+      minutesElement.textContent = formatWithLeadingZero(now.getMinutes());
+      secondsElement.textContent = formatWithLeadingZero(now.getSeconds());
+    }
+
+    // Update date and time every second
+    setInterval(updateDateTime, 1000);
+
+    // Initial call to set the date and time on page load
+    updateDateTime();
+  </script>
+</body>
+
+</html> -->

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/pay.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="../Javascript/main.js"></script>
+</head>
+
+<body>
+
+    <label>
+        <input type="checkbox">
+        <div class="toggle">
+            <span class="top_line common"></span>
+            <span class="middle_line common"></span>
+            <span class="bottom_line common"></span>
+        </div>
+
+        <!-- ASIDE START -->
+        <aside>
+            <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+            <div class="container__aside">
+                <div class="links__top">
+                    <li><a class="first" href="../HTML/Dashboard.html"><i
+                                class="uil uil-create-dashboard"></i>Dashboard</a></li>
+                    <li><a class="second" href="../HTML/Payments.html"><i class="uil uil-transaction"></i>Payment</a>
+                    </li>
+                    <li><a class="third" href="../HTML/Transactions.html"><i class="uil uil-notes"></i>Transactions</a>
+                    </li>
+                    <li><a class="fourth" href="../HTML/Notification.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                </div>
+
+                <div class="links__bottom">
+                    <li><a href="Refer.html">Refer a friend</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                </div>
+            </div>
+            <!-- ASIDE END -->
+
+            <main>
+                <div class="first__bar">
+                    <div class="clock">
+                        <span id="hrs">00</span>
+                        <span>:</span>
+                        <span id="min">00</span>
+                        <span>:</span>
+                        <span id="sec">00</span>
+                    </div>
+                    <div class="date">
+                        <span id="day">1st-</span>
+                        <span id="month">Jan-</span>
+                        <span id="year">2023</span>
+                    </div>
+                    <a href=""><img id="Dark__mode" src="../Images__Dashboard/Dark mode.png"></a>
+                    <a href=""> <img id="notification__icon" src="../Images__Dashboard/Notification.png"></a>
+                    <a href=""><img id="profile" src="../Images__Dashboard/Profile.png"></a>
+
+
+                </div>
+
+                <div class="cards">
+                    <div class="first__sec">
+
+                        <div class="third__Card">
+                            <div>
+                                <a href="addfunds__tab.html"><img src="../Images__Dashboard/Vector.png"
+                                        height="45px"></a>
+                                <p>Add Funds</p>
+                            </div>
+
+                            <div>
+                                <a href="trasnfer__tab.html"><img src="../Images__Dashboard/Vector (1).png"
+                                        height="45px"></a>
+                                <p>Transfer Funds</p>
+                            </div>
+
+                            <!-- <div>
+                                <a href=""><img src="../Images__Dashboard/Group 27.png" alt="" height="42px"></a>
+                                <p>Make Payments</p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="secondsec">
+                        <div class="fourth__Card">
+                            <img src="../Images__Dashboard/Support operator helps to solve the problem.png" alt="">
+                            <h2>Need help?</h2>
+                            <p>Our customer care teeam is avaliable 24/7.
+                                For any queries visit our FAQ section or send us a message
+                            </p>
+                            <button id="view__Faq">View FAQ</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="Add__Card">
+                    <p>Cards you added will appear here</p>
+                    <a href="">Add card</a>
+                </div>
+            </main>
+
+            <script>
+                function updateClock() {
+                    const now = new Date();
+                    const hours = now.getHours().toString().padStart(2, '0');
+                    const minutes = now.getMinutes().toString().padStart(2, '0');
+                    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                    document.getElementById('hrs').textContent = hours;
+                    document.getElementById('min').textContent = minutes;
+                    document.getElementById('sec').textContent = seconds;
+
+                    const day = now.getDate();
+                    const month = now.toLocaleString('default', { month: 'short' });
+                    const year = now.getFullYear();
+
+                    document.getElementById('day').textContent = day + 'th-';
+                    document.getElementById('month').textContent = month + '-';
+                    document.getElementById('year').textContent = year;
+                }
+
+                // Update the clock every second
+                setInterval(updateClock, 1000);
+                // Call the function once to set the initial values
+                updateClock();
+            </script>
+
+</body>
+
+</html>

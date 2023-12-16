@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ================ FONT AWESOME CDN ==================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../Css/Signup.css">
+    <title>Create an account</title>
+</head>
+
+<body>
+    <main>
+        <aside>
+            <img src="../Images/image2.png" alt="image2">
+        </aside>
+        <section>
+            <div class="right-side">
+                <div class="form-content">
+                    <!-- ============= LOGO ================= -->
+                    <div class="logo">
+                        <a href="#"><img src="../Images/logo.jpg" alt="logo" height="40px"></a>
+                    </div>
+                    <div class="headings">
+                        <h2>Set up your profile</h2>
+                        <h3>This info needs to be accurate</h3>
+                    </div>
+                    <!-- ================ FORM ================= -->
+                    <form action="/verification/register" method="POST">
+                        <fieldset>
+                            <legend>Your full names</legend>
+                            <input type="text" name="" id="full-name" placeholder="Enter your names" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Your Reg. no.</legend>
+                            <input type="text" name="" id="reg-no" placeholder="Enter your Keke registration no."
+                                required>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Create password</legend>
+                            <input type="password" name="" id="password" class="pwrd-1"
+                                placeholder="Enter your password" required>
+                            <div class="eye-icon">
+                                <i class="fa-solid fa-eye eye-open"></i>
+                                <i class="fa-solid fa-eye-slash eye-close"></i>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Confirm password</legend>
+                            <input type="password" name="" id="password" class="pwrd-2"
+                                laceholder="Confirm your password" required>
+                            <div class="eye-icon">
+                                <i class="fa-solid fa-eye eye-open"></i>
+                                <i class="fa-solid fa-eye-slash eye-close"></i>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <!-- ==================== BUTTON ================ -->
+                    <a href="Dashboard.html"><button id="btn">Sign Up</button></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+
+        const btn = document.getElementById('btn');
+
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
+
+            // Selecting input elements inside the event listener
+            const fullName = document.getElementById('full-name').value;
+            const registrationNumber = document.getElementById('reg-no').value;
+            const password = document.querySelector('.pwrd-1').value;
+            const confirmPassword = document.querySelector('.pwrd-2').value;
+
+            console.log(fullName);
+            console.log(registrationNumber);
+            console.log(password);
+            console.log(confirmPassword);
+
+            // Input validation
+            if (fullName === '' || registrationNumber === '' || password === '' || confirmPassword === '') {
+                alert('All inputs are required');
+                return;
+            }
+
+            // Replace this URL with your actual backend URL
+            const baseUrl = 'https://keke-pay.onrender.com';
+            // const baseUrl = 'http://localhost:5500'
+            const userId = localStorage.getItem('userId');
+            console.log(userId);
+
+
+            const registerUser = async () => {
+                try {
+                    const response = await fetch(`${baseUrl}/verification/register/${userId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            fullName,
+                            registrationNumber,
+                            password,
+                            confirmPassword
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert(`${data.message}`);
+                        localStorage.setItem('fullName', data.name);
+                        window.location.href = 'Dashboard.html';
+                    } else {
+                        alert(`${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error registering user:', error);
+                }
+            };
+
+            await registerUser();
+        });
+
+
+
+    </script>
+</body>
+
+</html>

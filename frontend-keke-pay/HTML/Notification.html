@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/Notification.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="../Javascript/main.js"></script>
+</head>
+
+<body>
+
+    <!-- ASIDE START -->
+    <div class="container">
+        <aside>
+            <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+            <div class="container__aside">
+                <div class="links__top">
+                    <li><a class="first" href="../HTML/Dashboard.html"><i
+                                class="uil uil-create-dashboard"></i>Dashboard</a></li>
+                    <li><a class="second" href="../HTML/Payments.html"><i class="uil uil-transaction"></i>Payment</a>
+                    </li>
+                    <li><a class="third" href="../HTML/Transactions.html"><i class="uil uil-notes"></i>Transactions</a>
+                    </li>
+                    <li><a class="fourth" href="../HTML/Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                </div>
+
+                <div class="links__bottom">
+                    <li><a href="Refer.html">Refer a friend</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                </div>
+            </div>
+        </aside>
+        <!-- ASIDE END -->
+
+        <div class="settings__container">
+            <nav>
+                <li><a id="profile" href="../HTML/Settings.html">My Profile</a></li>
+                <li id="Password"><a href="../HTML/password.html">Password</a></li>
+                <!-- <li id="Payment"><a href="../HTML/Settings_pay.html">Payments</a></li> -->
+                <li id="notification"><a href="../HTML/Notification.html">Notifications</a></li>
+            </nav>
+
+
+            <div class="Main__container">
+                <div class="first__sec">
+                    <div class="text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <path
+                                d="M6 30C5.175 30 4.4685 29.706 3.8805 29.118C3.2925 28.53 2.999 27.824 3 27V9C3 8.175 3.294 7.4685 3.882 6.8805C4.47 6.2925 5.176 5.999 6 6H30C30.825 6 31.5315 6.294 32.1195 6.882C32.7075 7.47 33.001 8.176 33 9V27C33 27.825 32.706 28.5315 32.118 29.1195C31.53 29.7075 30.824 30.001 30 30H6ZM18 19.5L6 12V27H30V12L18 19.5ZM18 16.5L30 9H6L18 16.5ZM6 12V9V27V12Z"
+                                fill="black" fill-opacity="0.5" />
+                        </svg>
+                        <h4>Email Notifications</h4>
+                    </div>
+
+                    <div class="others">
+                        <button id="first">cancel</button>
+                        <button id="second">Save Changes</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <article>
+                        <div class="first__bar">
+                            <h4>Payment date due</h4>
+                            <h5>Recieve an email when your payment date is close</h5>
+
+                            <div class="auto__pay">
+                                <label class="switch">
+                                    <input type="checkbox" id="toggleSwitch">
+                                    <span class="slider"></span>
+                            </div>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="first__bar">
+                            <h4>Payment Reciept</h4>
+                            <h5>Recieve email once your dues have been paid</h5>
+                            <div class="auto__pay">
+                                <label class="switch">
+                                    <input type="checkbox" id="toggleSwitch">
+                                    <span class="slider"></span>
+                            </div>
+                            </label>
+                        </div>
+                    </article>
+
+
+                    <article>
+                        <div class="second__sec">
+                            <div class="text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
+                                    fill="none">
+                                    <path
+                                        d="M6 30C5.175 30 4.4685 29.706 3.8805 29.118C3.2925 28.53 2.999 27.824 3 27V9C3 8.175 3.294 7.4685 3.882 6.8805C4.47 6.2925 5.176 5.999 6 6H30C30.825 6 31.5315 6.294 32.1195 6.882C32.7075 7.47 33.001 8.176 33 9V27C33 27.825 32.706 28.5315 32.118 29.1195C31.53 29.7075 30.824 30.001 30 30H6ZM18 19.5L6 12V27H30V12L18 19.5ZM18 16.5L30 9H6L18 16.5ZM6 12V9V27V12Z"
+                                        fill="black" fill-opacity="0.5" />
+                                </svg>
+                                <h4>SMS Notifications</h4>
+                            </div>
+                    </article>
+
+                    <article>
+                        <div class="first__bar">
+                            <h4>Payment date due</h4>
+                            <h5>Recieve an email when your payment date is close</h5>
+                            <div class="auto__pay">
+                                <label class="switch">
+                                    <input type="checkbox" id="toggleSwitch">
+                                    <span class="slider"></span>
+                            </div>
+                            </label>
+                        </div>
+                    </article>
+
+                    <article>
+                        <div class="first__bar">
+                            <h4>Payment Reciept</h4>
+                            <h5>Recieve email once your dues have been paid</h5>
+                            <div class="auto__pay">
+                                <label class="switch">
+                                    <input type="checkbox" id="toggleSwitch">
+                                    <span class="slider"></span>
+                            </div>
+                            </label>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

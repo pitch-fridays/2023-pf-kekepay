@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Css/Agent Login.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/login" method="POST">
+            <div class="card">
+                <img class="logo" src="../Images/logo.jpg" alt="" height="20px" width="160px">
+                <h3>Agent Login</h3>
+                <div class="ID">
+                    <Label for="Agent ID"> Agent ID</Label>
+                    <input id="ID" type="email" placeholder="Enter your ID" class="adentEmail"> <br>
+                </div>
+                <div class="password">
+                    <Label for="Password">Password</Label>
+                    <input id="pass" type="password" placeholder="Enter your password" class="agentPassword"><br>
+                </div>
+                <div class="Check">
+                    <input type="checkbox">
+                    Remember me
+                    <a id="Forgot" href="#">Forgot ID or password</a><br>
+                </div>
+                <input id="button" type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+
+<script>
+    const btn = document.getElementById('button');
+    console.log(btn);
+
+
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // const baseUrl = 'http://localhost:5500';
+        const baseUrl = 'https://keke-pay.onrender.com'
+
+
+        const email = document.querySelector('.adentEmail').value;
+        const password = document.querySelector('.agentPassword').value;
+        console.log(email);
+        console.log(password);
+
+        // if (email === '' || password === '') {
+        //     alert('Please enter your email and password !')
+        // }
+
+        const loginAgent = async () => {
+
+            try {
+
+                const response = await fetch(`${baseUrl}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    alert(`${data.message}`);
+
+
+                }
+
+                if (response.ok) {
+
+                    alert(`${data.message}`);
+
+                    localStorage.setItem('agentId', data.agentId);
+                    window.location.href = 'agentDashboard.html';
+                }
+
+            } catch (error) {
+                console.error('error while login', error)
+
+            }
+
+        }
+
+
+        loginAgent();
+    })
+</script>
+
+</html>

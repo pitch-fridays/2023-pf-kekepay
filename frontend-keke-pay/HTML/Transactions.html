@@ -1,0 +1,217 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/Transactions.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+            <div class="container__aside">
+                <div class="links__top">
+                    <li><a class="first" href="Dashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a>
+                    </li>
+                    <li><a class="second" href="Payments.html"><i class="uil uil-transaction"></i>Payment</a></li>
+                    <li><a class="third" href="Transactions.html"><i class="uil uil-notes"></i>Transactions</a></li>
+                    <li><a class="fourth" href="Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                </div>
+
+                <div class="links__bottom">
+                    <li><a href="">Refer a friend</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                </div>
+            </div>
+        </aside>
+
+        <div class="transaction__area">
+            <div class="top__transaction__area">
+                <li>Your transaction history</li>
+                <li><a href="">View all</a></li>
+            </div>
+            <hr>
+            <div class="list">
+                <strong>Date</strong>
+                <strong>Description</strong>
+                <strong>Amount</strong>
+                <strong>Reciept no.</strong>
+                <strong>Status</strong>
+            </div>
+            <div class="history">
+                <div class="first__row">
+                    <li>31.10.23</li>
+                    <li>Dues Payment</li>
+                    <li id="amount">N100</li>
+                    <li>112FA38</li>
+                    <li id="Status"><img src="../Images/Ellipse 4.svg" alt="" h4>Completed</li>
+                </div>
+
+                <div class="first__row">
+                    <li>31.10.23</li>
+                    <li>Dues Payment</li>
+                    <li id="amount">N100</li>
+                    <li>112FA38</li>
+                    <li id="Status"><img src="../Images/failed.svg" alt="" h4>Failed</li>
+                </div>
+
+                <div class="first__row">
+                    <li>31.10.23</li>
+                    <li>Dues Payment</li>
+                    <li id="amount">N100</li>
+                    <li>112FA38</li>
+                    <li id="Status"><img src="../Images/Proecessing.svg" alt="" h4>Proecessing</li>
+                </div>
+
+                <div class="first__row">
+                    <li>31.10.23</li>
+                    <li>Dues Payment</li>
+                    <li id="amount">N100</li>
+                    <li>112FA38</li>
+                    <li id="Status"><img src="../Images/Ellipse 4.svg" alt="" h4>Completed</li>
+                </div>
+
+                <div class="first__row">
+                    <li>31.10.23</li>
+                    <li>Dues Payment</li>
+                    <li id="amount">N100</li>
+                    <li>112FA38</li>
+                    <li id="Status"><img src="../Images/Ellipse 4.svg" alt="" h4>Completed</li>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="date">
+        <h4>Select Custom dates</h4> <input type="date">
+    </div>
+
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/Transactions.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="main.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- <aside> -->
+        <!-- ... Your existing aside content ... -->
+        <!-- </aside> -->
+        <div class="container">
+            <aside>
+                <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+                <div class="container__aside">
+                    <div class="links__top">
+                        <li><a class="first" href="Dashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a>
+                        </li>
+                        <li><a class="second" href="Payments.html"><i class="uil uil-transaction"></i>Payment</a></li>
+                        <li><a class="third" href="Transactions.html"><i class="uil uil-notes"></i>Transactions</a></li>
+                        <li><a class="fourth" href="Settings.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                    </div>
+
+                    <div class="links__bottom">
+                        <li><a href="Refer.html">Refer a friend</a></li>
+                        <li><a href="">Support</a></li>
+                        <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="transaction__area">
+                <div class="top__transaction__area">
+                    <li>Your transaction history</li>
+                    <li><a href=""><button class="view"
+                                style="cursor:  pointer;background-color: white; border: none;  font-size: large;">View
+                                all</button> </a>
+                    </li>
+                </div>
+                <hr>
+                <div class="list">
+                    <strong>Date</strong>
+                    <strong>Description</strong>
+                    <strong>Amount</strong>
+                    <strong>Reciept no.</strong>
+                    <strong>Status</strong>
+                </div>
+                <div class="history" id="transactionHistory">
+                    <!-- Transaction history will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const viewAll = document.querySelector('.view');
+            console.log(viewAll);
+            viewAll.addEventListener('click', async function (e) {
+                e.preventDefault();
+                const baseUrl = 'https://keke-pay.onrender.com'
+
+                // const baseUrl = 'http://localhost:5500';
+                const userId = localStorage.getItem('userId');
+
+                const transactionHistoryElement = document.getElementById('transactionHistory');
+                // http://localhost:5500/payments/6567d9f9f6f45a5e4ff44dba
+
+                try {
+                    const response = await fetch(`${baseUrl}/payments/${userId}`);
+                    const data = await response.json();
+                    // const { date, keke, amount, reciept } = data
+
+                    if (response.ok) {
+                        data.forEach(transaction => {
+                            const transactionRow = document.createElement('div');
+                            transactionRow.classList.add('first__row');
+
+                            const formattedDate = new Date(transaction.date).toLocaleDateString();
+
+                            transactionRow.innerHTML = `
+                            <li>${formattedDate}</li>
+                            <li>${transaction.description}</li>
+                            <li id="amount">N${transaction.amount}</li>
+                            <li>${transaction.receiptNumber}</li>
+                            <li id="Status"><img src="../Images/Ellipse 4.svg" alt="" h4>${transaction.status}</li>
+                  `;
+
+                            transactionHistoryElement.appendChild(transactionRow);
+                        });
+                    } else {
+                        console.error(`Failed to fetch transactions. Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error fetching transactions:', error);
+                }
+            });
+
+            // document.addEventListener("DOMContentLoaded",);
+        </script>
+</body>
+
+</html>

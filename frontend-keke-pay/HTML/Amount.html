@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Css/amount.css">
+</head>
+<body>
+    <div class="container" id="popup">
+        <div class="amount__top">
+            <h3>Amount</h3>
+            <img onclick="dashboard()" src="../Images/close.svg" alt="" height="20px">
+        </div>
+
+        <div class="content">
+            <div class="first">
+            <h4>Amount</h4>
+            <img src="../Images/enter.svg" alt="">
+            <input type="number" placeholder="Enter amount">
+        </div>
+
+            <div class="second">
+            <img src="../Images__Dashboard/Mastercard.svg" alt="">
+            <input type="number" placeholder="5473***************">
+        </div>
+</div>      
+
+    <div class="btn">
+    <button id="first"><img src="../Images/plus.svg" alt=""><h4>Add card</h4></button>
+</div>
+<div class="last">
+    <button id="second">Add money</button>
+</div>
+    </div>
+</body>
+<script>
+
+function dashboard() {
+    window.location.href ="index.html"
+}
+</script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../Css/Settings.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+    <!-- ASIDE START -->
+    <div class="container">
+        <aside>
+            <img class="logo" src="../Images__Dashboard/logo.jpg" alt="">
+            <div class="container__aside">
+                <div class="links__top">
+                    <li><a class="first" href="Dashboard.html"><i class="uil uil-create-dashboard"></i>Dashboard</a>
+                    </li>
+                    <li><a class="second" href="Payments.html"><i class="uil uil-transaction"></i>Payment</a></li>
+                    <li><a class="third" href="Transactions.html"><i class="uil uil-notes"></i>Transactions</a></li>
+                    <li><a class="fourth" href="Dashboard.html"><i class="uil uil-cog"></i>Settings</a></li>
+
+                </div>
+
+                <div class="links__bottom">
+                    <li><a href="Refer.html">Refer a friend</a></li>
+                    <li><a href="">Support</a></li>
+                    <li><a href="Login.html">Log out <i class="uil uil-signout"></i></a></li>
+                </div>
+            </div>
+        </aside>
+        <!-- ASIDE END -->
+
+        <div class="settings__container">
+            <nav>
+                <li><a id="profile" href="Settings.html">My Profile</a></li>
+                <li id="Password"><a href="password.html">Password</a></li>
+                <!-- <li id="Payment"><a href="Settings_pay.html">Payments</a></li> -->
+                <li id="notification"><a href="Notification.html">Notifications</a></li>
+            </nav>
+
+            <div class="Main__container">
+                <form action="/user/update" method="PATCH">
+                    <div class="first__sec">
+                        <div class="first__bar">
+                            <h4>Personal Info</h4>
+                            <h5>Update your photo and Personal details here</h5>
+                        </div>
+
+                        <div class="others">
+                            <!-- <button id="first">cancel</button> -->
+                            <button id="second" style="background-color:gold;">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <div class="info__sec">
+                        <div class="name">
+                            <h4>Name</h4>
+                            <div class="classname">
+                                <input type="text" placeholder="John James">
+                            </div>
+                        </div>
+
+                        <div class="email">
+                            <h4>Email</h4>
+                            <input type="email" placeholder="JohnDoe@gmail.com">
+                        </div>
+
+
+                        <div class="reg__no">
+                            <h4>Keke registration Number</h4>
+                            <input type="tel" placeholder="KK234323">
+                        </div>
+                    </div>
+
+
+                    <div class="last__Container">
+                        <div class="one">
+                            <h4>Your photo</h4>
+                            <h5>This photo will be displayed on your profile</h5>
+                        </div>
+
+                        <div class="two">
+                            <img src="Images__Dashboard/Profile.png" alt="" height="50px">
+                        </div>
+
+
+                        <div class="three">
+                            <img src="Images__Dashboard/Upload.svg" alt="">
+                            <h4>Click to upload</h4>
+                            <h5>Or drag and drop SVG, PNG or JPEG(max, 800*400px)</h5>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const btn = document.getElementById('second')
+        btn.addEventListener('click', async function (e) {
+            e.preventDefault();
+
+            // const baseUrl = 'http://localhost:5500';
+            const baseUrl = 'https://keke-pay.onrender.com';
+            const userId = localStorage.getItem('userId');
+
+            const updateProfile = async () => {
+                const fullName = document.querySelector('.classname input').value;
+                const email = document.querySelector('.email input').value;
+                const registrationNumber = document.querySelector('.reg__no input').value;
+
+                try {
+                    const response = await fetch(`${baseUrl}/user/update/${userId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            fullName,
+                            email,
+                            registrationNumber,
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // alert('Profile updated successfully.');
+                        alert(`${data.message}`);
+                        localStorage.setItem('fullName', data.name);
+                        window.location.href = 'Dashboard.html';
+
+                    }
+                    // else {
+                    //     alert(`Failed to update profile. Error: ${data.message}`);
+                    // }
+
+                } catch (error) {
+                    console.error('Error updating user profile:', error);
+                    alert(`Failed to update profile. Error: ${data.message}`);
+
+                }
+            };
+
+            await updateProfile();
+        });
+
+
+    </script>
+
+
+    </script>
+</body>
+
+</html>

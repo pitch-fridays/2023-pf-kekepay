@@ -1,0 +1,37 @@
+.form-content {
+    width: 73%;
+    height: 90%;
+    padding: 1rem;
+  }
+.form-content p{
+    color: var(--bodytext);
+    margin-top: 1rem;
+    font-size: 13px;
+    width: 95%;
+}
+input {
+    padding: 10px 20px;
+    width: 400px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    margin-left: 1rem;
+  }
+.login{
+    text-align: center;
+    margin-top: -3rem;
+}
+span{
+    margin-left: 1.5rem;
+    color: #006400;
+}
+button{
+    margin-top: 2.5rem 0;
+}
+fieldset i{
+    position: absolute;
+    left: 0%;
+    bottom: 14px;
+    margin-left: 1rem;
+    color: var(--bodytext);
+  }

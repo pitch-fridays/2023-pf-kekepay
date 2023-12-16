@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+}
+
+.Main__container {
+    border: 1px solid red;
+    height: 35rem;
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    margin-top: 40px;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 330px;
+    border-radius: 0 25px 25px 0;
+    border-radius: 0px 20px 20px 0px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    padding: 40px 0px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    height: 57.6rem;
+    margin-top: 10px;
+}
+
+.logo {
+    display: flex;
+    width: 181px;
+    height: 41px;
+    margin: 0 40px;
+    margin-top: -1.5rem;
+}
+
+li {
+    list-style: none;
+    padding: 0 35px;
+}
+
+.links__top li a {
+    display: block;
+    text-decoration: none;
+    padding: 13px 10px;
+    margin-top: 25px;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+.links__top li i {
+    padding-right: 10px;
+}
+
+.links__top li a:hover {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+.links__top li .fourth {
+    background: #006400;
+    color: white;
+    transition: 0.46s;
+}
+
+
+.links__bottom li a {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    display: row;
+}
+
+
+.links__bottom {
+    margin-top: 150px;
+}
+
+.links__bottom li a {
+    padding: 15px;
+}
+
+
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    border-bottom: 0.5px solid #D9D9D9;
+    margin: 10px 20px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.first__bar {
+    margin: 0 20px;
+}
+
+.settings__container {
+    margin: 70px 0 80px 80px;
+    width: 52rem;
+}
+
+.first__sec {
+    display: flex;
+    gap: 9rem;
+    line-height: 23px;
+    margin: 30px 20px;
+    border-bottom: 0.5px solid #D9D9D9;
+}
+
+h5 {
+    color: rgba(0, 0, 0, 0.50);
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+h4 {
+    color: #000;
+
+    /* H4 */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.others {
+    display: flex;
+    gap: 20px;
+    margin: 0 20px;
+}
+
+#first {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: #FFC107;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+
+#second {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+
+.name {
+    display: flex;
+    padding: 0 30px;
+    border-bottom: 0.5px solid #D9D9D9;
+    margin: 0 30px;
+}
+
+.name h4 {
+    display: flex;
+    align-items: center;
+}
+
+.classname {
+    margin: 0 0 0 230px;
+    display: flex;
+    gap: 20px;
+}
+
+.classname input {
+    padding: 10px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 0.50);
+    margin-bottom: 10px;
+    width: 402px;
+}
+
+.email {
+    display: flex;
+    border-bottom: 0.5px solid #D9D9D9;
+    margin: 0 30px;
+}
+
+.email input {
+    margin-left: 199px;
+    padding: 10px;
+    width: 402px;
+    margin-bottom: 10px;
+}
+
+
+.email h4 {
+    display: flex;
+    align-items: center;
+    margin: 0 30px;
+}
+
+
+.reg__no {
+    display: flex;
+    border-bottom: 0.5px solid #D9D9D9;
+    margin: 0 30px;
+}
+
+.reg__no input {
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 0, 0, 0.50);
+    padding: 10px;
+    margin-left: 45px;
+    width: 402px;
+    margin-bottom: 10px;
+}
+
+.reg__no h4 {
+    display: flex;
+    align-items: center;
+    margin: 0 30px;
+    width: 200px;
+}
+
+.info__sec {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.last__Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 60px;
+    border-bottom: 0.5px solid #D9D9D9;
+    gap: 30px;
+}
+
+
+
+
+
+
+.three {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border: 0.5px solid #D9D9D9;
+    background: #FFF;
+    height: 100px;
+    width: 300px;
+}
+
+.three img {
+    display: flex;
+}
+
+.three h5 {
+    width: 280px;
+    text-align: center;
+}
+
+.one {
+    position: relative;
+    left: 1px;
+}
+
+#profile {
+    color: #006400;
+    border-bottom: 2px solid #006400;
+    transition: 0.8s;
+}
